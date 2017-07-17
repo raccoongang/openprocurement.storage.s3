@@ -8,6 +8,6 @@ def includeme(config):
         # S3 connection
         connection = S3Connection(settings['s3.access_key'], settings['s3.secret_key'])
         bucket_name = settings['s3.bucket']
-        config.registry.storage = S3Storage(connection, bucket_name)
+        return S3Storage(connection, bucket_name)
     else:
         raise
